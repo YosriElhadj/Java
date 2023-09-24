@@ -1,14 +1,14 @@
 public class Animal {
-    String family,name;
+    String family,nameAnimal;
     int age;
     boolean isMammal;
 
     public Animal(){}
 
-    public Animal(String family,String name,int age,boolean isMammal)
+    public Animal(String family,String nameAnimal,int age,boolean isMammal)
     {
         this.family=family;
-        this.name=name;
+        this.nameAnimal=nameAnimal;
         this.age=age;
         this.isMammal=isMammal;
     }
@@ -16,9 +16,14 @@ public class Animal {
     public void displayAnimal()
     {
         System.out.println("Family :" +family);
-        System.out.println("name : "+name);
+        System.out.println("name : "+nameAnimal);
         System.out.println("age :" +age);
         System.out.println("Mammal : "+isMammal);
+    }
+
+    @Override
+    public String toString() {
+        return "Animal: " + nameAnimal + "\nFamily: " + family + "\nAge: " + age + " years\nMammal: " + isMammal;
     }
 
 

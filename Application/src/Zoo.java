@@ -3,6 +3,7 @@ public class Zoo extends Animal {
     Animal [] animals;
     String name,city;
     int nbrCages;
+    int animalCount = 0;
 
     public Zoo(){}
 
@@ -22,12 +23,44 @@ public class Zoo extends Animal {
     }
 
 
-    public boolean addAnimal(Animal animal)
-    {
-        int i=0;
-        while (i<nbrCages) {
-            animals[i]=animal;
-            i++;
+    public boolean addAnimal(Animal animal) {
+        if (animalCount < animals.length) {
+                animals[animalCount] = animal;
+                animalCount++;
+                return true;
+        } else {
+            return false; // Zoo is full, cannot add
         }
-    return true;}
+    }
+
+    public void displayAnimals() {
+        for (int i = 0; i < animalCount; i++) {
+            System.out.println("Animal " + (i + 1) + ":");
+            animals[i].displayAnimal();
+            System.out.println();
+        }
+    }
+
+    public int searchAnimal(Animal animal) {
+        for (int i = 0; i < animalCount; i++) {
+            if (animals[i].nameAnimal.equals(animal.nameAnimal)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean removeAnimal(Animal animal) {
+        for (int i = 0; i < animalCount; i++) {
+            if (animals[i].equals(animal)) {
+                for (int j = i; j < animalCount - 1; j++) {
+                    animals[j] = animals[j + 1];
+                }
+                animals[animalCount - 1] = null;
+                animalCount--;
+                return true;
+            }
+        }
+        return false; // Animal not found in the zoo
+    }
 }
