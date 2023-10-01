@@ -1,40 +1,35 @@
-import java.util.Scanner;
-
 public class ZooManagement {
-    public static void main(String args[]){
 
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        //PROSIT 2
+        Animal lion = new Animal();
+        lion.name = "Simba";
+        lion.age = 8;
+        lion.family = "Cats";
+        lion.isMammal = true;
 
-        System.out.println("Enter the zoo name: ");
-        String zooName = scanner.nextLine();
-        System.out.println("Enter the city: ");
-        String zooCity = scanner.nextLine();
-        System.out.println("Enter the number of cages: ");
-        int zooCages = scanner.nextInt();
-
-        Zoo myZoo = new Zoo(zooName, zooCity, zooCages);
-
-        Animal lion = new Animal("piw", "Lion", 5, true);
-        Animal elephant = new Animal("holooo", "Elephant", 20, true);
-        Animal giraffe = new Animal("bawbaw", "Giraffe", 5, false);
+        Zoo myZoo = new Zoo();
+        myZoo.name = "Wildlife Park";
+        myZoo.city = "Ariana";
+        myZoo.nbrCages = 25;
+        myZoo.animals = new Animal[25];
 
 
-        myZoo.addAnimal(lion);
-        myZoo.addAnimal(elephant);
-        myZoo.addAnimal(giraffe);
+        Animal dog = new Animal("Canine", "Snoopy", 2, true);
 
+        System.out.println(myZoo);
+        System.out.println(myZoo.toString());
 
-        myZoo.displayZoo();
+        System.out.println(myZoo.addAnimal(lion));
+        System.out.println(myZoo.addAnimal(dog));
+
         myZoo.displayAnimals();
 
+        System.out.println(myZoo.searchAnimal(dog));
+        Animal dog2 = new Animal("Canine", "Snoopy", 2, true);
+        System.out.println(myZoo.searchAnimal(dog2));
 
-        Animal searchLion = new Animal("piw", "Lion", 5, true);
-        int indice = myZoo.searchAnimal(searchLion);
-        if (indice != -1) {
-            System.out.println("The animal was found at : " + indice);
-        } else {
-            System.out.println("The animal was not found in the zoo.");
-        }
-        
+        System.out.println(myZoo.removeAnimal(dog));
+        myZoo.displayAnimals();
     }
 }
