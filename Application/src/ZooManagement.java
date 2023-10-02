@@ -51,11 +51,7 @@ public class ZooManagement {
 
         Zoo moreFilledZoo = Zoo.comparerZoo(zoo1, zoo2);
 
-        if (moreFilledZoo != null) {
-            System.out.println("Le zoo avec le plus d'animaux est : " + moreFilledZoo.name);
-        } else {
-            System.out.println("Les deux zoos ont le même nombre d'animaux.");
-        }
+        System.out.println(moreFilledZoo);
 
     }
 }
