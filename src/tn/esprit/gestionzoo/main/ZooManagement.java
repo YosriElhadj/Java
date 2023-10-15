@@ -1,6 +1,5 @@
 package tn.esprit.gestionzoo.main;
-import tn.esprit.gestionzoo.entities.Animal;
-import tn.esprit.gestionzoo.entities.Zoo;
+import tn.esprit.gestionzoo.entities.*;
 
 public class ZooManagement {
 
@@ -46,6 +45,25 @@ public class ZooManagement {
 
 //        System.out.println(Zoo.comparerZoo(myZoo, notMyZoo));
 //        System.out.println(myZoo.isZooFull());
+
+        Terrestrial animalTeresstial=new Terrestrial();
+        Aquatic animalAquatique=new Aquatic();
+        Dolphin dolphin=new Dolphin();
+        Penguin penguin=new Penguin();
+
+        animalAquatique.setHabitat("Polar");
+        animalTeresstial.setNbrLegs(2);
+        dolphin.setSwimmingSpeed(2.5f);
+        penguin.setSwimmingDepth(6.8f);
+
+        System.out.println(animalAquatique);
+        System.out.println(animalTeresstial);
+        System.out.println(dolphin);
+        System.out.println(penguin);
+
+        animalAquatique.swim();
+        //penguin.swim();  public void swim won't work on penguin because it does not extend from aquatic
+        dolphin.swim();
 
     }
 
