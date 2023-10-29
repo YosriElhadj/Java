@@ -65,6 +65,20 @@ public class ZooManagement {
         //penguin.swim();  public void swim won't work on penguin because it does not extend from aquatic
         dolphin.swim();
 
+        Aquatic fish = new Aquatic("Freshwater");
+        Aquatic shark = new Aquatic("Ocean");
+        Aquatic polar_bear = new Aquatic("Antarctica");
+
+        // Add aquatic animals to the zoo
+        myZoo.addAquaticAnimal(fish);
+        myZoo.addAquaticAnimal(shark);
+        myZoo.addAquaticAnimal(polar_bear);
+
+        myZoo.showAquaticAnimals();
+
+        myZoo.displayNumberOfAquaticsByType();
+
+
     }
 
 }

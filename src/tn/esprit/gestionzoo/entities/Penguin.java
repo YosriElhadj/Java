@@ -26,4 +26,9 @@ public class Penguin extends Terrestrial {
                 "swimmingDepth=" + swimmingDepth +
                 '}';
     }
+
+  
+    public void swim() {
+        System.out.println("The penguin is swimming at a depth of " + swimmingDepth + " meters.");
+    }
 }

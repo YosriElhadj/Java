@@ -24,8 +24,9 @@ public class Dolphin extends Aquatic{
                 '}';
     }
 
-    public void swim()
-    {
-        System.out.println("this dolphin is swimming");
+
+
+    public void swim() {
+        System.out.println("The dolphin is swimming with a speed of " + swimmingSpeed + " km/h.");
     }
 }
