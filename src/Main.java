@@ -22,15 +22,17 @@ class Zoo {
     Animal[] animals;
     String name;
     String city;
-    int nbrCages;
+    final int nbrCages;
 
     public Zoo(String name, String city, int nbrCages) {
         animals = new Animal[nbrCages];
         this.name = name;
         this.city = city;
-
-        this.nbrCages = nbrCages;
-
+        if(nbrCages>25)
+            this.nbrCages = 25;
+        else {
+            this.nbrCages = nbrCages;
+        }
     }
     public boolean addAnimal(Animal animal) {
         for(int i=0;i<this.nbrCages;i++){
@@ -71,13 +73,32 @@ class Zoo {
         }
         return false;
     }
+    public boolean isZooFull(){
+        int nbranimal=0;
+        for(int i=0;(i<this.nbrCages);i++)
+        {if(animals[i]!=null)
+        {nbranimal=+1;}}
+        if(this.nbrCages==nbranimal) {
+            return true;
+        }
+        return false;
 
+    }
     public int nbranimal1(Zoo z){
         int nbranimal=0;
         for(int i=0;(i<this.nbrCages);i++)
         {if(animals[i]!=null)
         {nbranimal=+1;}}
         return nbranimal;
+    }
+    public Zoo comparerZoo(Zoo z1, Zoo z2)
+    {if(nbranimal1(z1)>nbranimal1(z2))
+    {return z2;}
+    else if(nbranimal1(z1)<nbranimal1(z2))
+    {return z1;}
+     return z1;
+
+
     }
 }
 
@@ -129,10 +150,11 @@ public class Main {
 
 // Ajoutez des animaux aux zoos...
 
+        Zoo z = zoo1.comparerZoo(zoo1, zoo2);
+        System.out.println("Le zoo avec le plus d'animaux est : " + z.name);
 
 
-
-
+        System.out.println( myZoo.isZooFull());
 
 
 
